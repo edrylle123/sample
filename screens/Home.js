@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, View, Button} from 'native-base'
+import { Container, View, Button } from 'native-base'
 import { Text, StyleSheet, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import List from './components/List'
 
@@ -29,53 +29,46 @@ class Home extends React.Component {
 
     };
   }
-  
+
 
   render() {
     const { navigate } = this.props.navigation;
     return (
       <Container>
-        {/* <ScrollView style={{flex: 1}}> */}
+      
 
-        
+
         <View>
           <Text style={style.txtheader}>
             Stock Inventory Control
-                    </Text>
-          <Text style={style.date}>
-            Date:
-                    </Text>
-
-          <TextInput
-            placeholder="Insert Date">
-          </TextInput>
+          </Text>
+ 
 
           <View>
             <Text style={{ fontSize: 25 }}>
-              Recent
-                    </Text>
+              Products
+            </Text>
           </View>
-            <View>
-                
-              
-              {this.state.List.map((hh) => (    
-                <FlatList
+          <View>
+            {this.state.List.map((hh) => (
+              <FlatList
                 data={this.state.List}
-                renderItem={({ item }) => <Button><Text style = {{ marginHorizontal: 100 }}> { item.item  } </Text>
-                <Text>
-                  Edit
+                renderItem={({ item }) => <Button><Text style={{ marginHorizontal: 100 }}> {item.item} </Text>
+                  <Text onPress={() => navigate('Look')}>
+                    View
+                </Text>
+                  <Text >
+                    Edit
+                </Text>
+                  <Text>
+                    Delete
                 </Text>
                 </Button>}
-                
-                  // itemName={`${hh.item}`}
-                  // itemDescription={`${hh.begin}, ${hh.pasok}, ${hh.out},${hh.perpend},
-                  //               ${hh.physicalinv},${hh.remarks},${hh.perres}`}
-                 
-                                />       
-              ))
-              }
-              
-            </View>
+              />
+            ))
+            }
+
+          </View>
           <View style={style.MainContainer}>
             <TouchableOpacity onPress={() => navigate('Additem', {
               onFormComplete: (formDetails) => this.processForm(formDetails)
@@ -87,7 +80,7 @@ class Home extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-        {/* </ScrollView> */}
+
       </Container>
     )
   }
