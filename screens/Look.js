@@ -1,22 +1,35 @@
 import React from 'react'
 import { Container, View, Text } from 'native-base'
+import List from './components/List'
+import { ScrollView } from 'react-native-gesture-handler'
 
-export default class Look extends React.Component{
+export default class Look extends React.Component {
+    constructor(props) {
+        super(props);
     
-    render(){
+        this.state = {
+          List: []
+    
+        };
+      }
+
+    render() {
         const { navigate } = this.props.navigation;
-        return(
+        return (
             <Container>
                 <View>
-                    <Text>
-                        Hello
-                    </Text>
+                    {this.state.List.map((hh) => (
+                        <List
+                            itemName={`${hh.item}`}
+                            itemDescription={`${hh.begin}, ${hh.pasok}, ${hh.out},${hh.perpend},
+                                            ${hh.physicalinv},${hh.remarks},${hh.perres}`}
+
+                        />
+                    ))
+                    }
                 </View>
             </Container>
         )
     }
 }
 
- // itemName={`${hh.item}`}
-                  // itemDescription={`${hh.begin}, ${hh.pasok}, ${hh.out},${hh.perpend},
-                  //               ${hh.physicalinv},${hh.remarks},${hh.perres}`}

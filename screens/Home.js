@@ -57,7 +57,7 @@ class Home extends React.Component {
                   <Text onPress={() => navigate('Look')}>
                     View
                 </Text>
-                  <Text >
+                  <Text onPress={() => navigate('Edit')}>
                     Edit
                 </Text>
                   <Text>
